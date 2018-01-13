@@ -1,6 +1,7 @@
 package com.example.xoxgamewithkotlinmvpdagger.app
 
 import android.content.Context
+import com.example.xoxgamewithkotlinmvpdagger.IntentHelper
 import dagger.Module
 import dagger.Provides
 
@@ -19,6 +20,12 @@ class AppModule(context: Context) {
     @Provides
     fun provideContext(): Context {
         return this.mContext
+    }
+
+    @Provides
+    fun provideIntentHelper(context: Context): IntentHelper {
+
+        return IntentHelper(context)
     }
 
 }
