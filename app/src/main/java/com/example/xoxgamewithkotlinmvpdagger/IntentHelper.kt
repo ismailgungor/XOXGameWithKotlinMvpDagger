@@ -3,6 +3,7 @@ package com.example.xoxgamewithkotlinmvpdagger
 import android.content.Context
 import android.content.Intent
 import com.example.xoxgamewithkotlinmvpdagger.gameActivity.GameActivity
+import com.example.xoxgamewithkotlinmvpdagger.mainActivity.MainActivity
 
 /**
  * Created by ismailgungor on 13.01.2018.
@@ -23,6 +24,10 @@ class IntentHelper(context: Context) {
         gameIntent.putExtra("player2", player2Name)
 
         return gameIntent
+    }
+
+    fun getMainActivityIntent(): Intent {
+        return Intent(mContext, MainActivity::class.java)
     }
 
 }
