@@ -10,7 +10,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.xoxgamewithkotlinmvpdagger.R
 import com.example.xoxgamewithkotlinmvpdagger.R2
-import com.example.xoxgamewithkotlinmvpdagger.gameActivity.GameActivity
+import com.example.xoxgamewithkotlinmvpdagger.app.AppModule
 import javax.inject.Inject
 
 /**
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
         setContentView(R.layout.activity_main)
 
         DaggerMainActivityComponent.builder()
+                .appModule(AppModule(this))
                 .mainActivityModule(MainActivityModule())
                 .build().inject(this)
 
@@ -57,11 +58,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
     override fun goToGameActivity(player1Name: String, player2Name: String) {
 
-        val intent = Intent(this, GameActivity::class.java)
-        intent.putExtra("player1", player1Name)
-        intent.putExtra("player2", player2Name)
-
-        startActivity(intent)
+        startActivity(mPresenter.callGameIntent(player1Name,player2Name))
         finish()
     }
 }
