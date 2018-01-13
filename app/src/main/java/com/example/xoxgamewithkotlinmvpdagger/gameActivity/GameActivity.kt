@@ -10,6 +10,7 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.xoxgamewithkotlinmvpdagger.*
+import com.example.xoxgamewithkotlinmvpdagger.app.AppModule
 import javax.inject.Inject
 
 class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClickListener {
@@ -51,6 +52,9 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
     @BindView(R2.id.tv_congratulation)
     lateinit var tvCongratulation: TextView
 
+    @BindView(R2.id.tv_change_player_names)
+    lateinit var tvChangePlayerNames: TextView
+
     @Inject
     lateinit var mPresenter: GameActivityPresenter
 
@@ -59,6 +63,7 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
         setContentView(R.layout.activity_game)
 
         DaggerGameActivityComponent.builder()
+                .appModule(AppModule(this))
                 .gameActivityModule(GameActivityModule())
                 .build().inject(this)
 

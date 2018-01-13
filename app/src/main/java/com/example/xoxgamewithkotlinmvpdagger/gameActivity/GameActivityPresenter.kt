@@ -1,17 +1,19 @@
 package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
 import android.widget.Button
+import com.example.xoxgamewithkotlinmvpdagger.IntentHelper
 import com.example.xoxgamewithkotlinmvpdagger.R
 import javax.inject.Inject
 
 /**
  * Created by ismailgungor on 12.01.2018.
  */
-class GameActivityPresenter @Inject constructor(gameHelper: GameHelper) : GameActivityContract.Presenter {
+class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHelper: IntentHelper) : GameActivityContract.Presenter {
 
 
     private lateinit var mView: GameActivityContract.View
     private var mGameHelper: GameHelper = gameHelper
+    private var mIntentHelper: IntentHelper = intentHelper
     private var playerNumber = 1
     private var isFinished = false
 
