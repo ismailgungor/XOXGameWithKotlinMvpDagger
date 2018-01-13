@@ -85,6 +85,10 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
         btn8.setOnClickListener(this)
         btn9.setOnClickListener(this)
         btnStartAgain.setOnClickListener(this)
+        tvChangePlayerNames.setOnClickListener {
+            startActivity(mPresenter.callMainActivityIntent())
+            finish()
+        }
 
         Toast.makeText(this, intent.extras.getString("player1") + " " + intent.extras.getString("player2"), Toast.LENGTH_SHORT).show()
     }
