@@ -118,7 +118,7 @@
         android:layout_marginBottom="24dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:layout_constraintVertical_bias="0.784"/>
+        app:layout_constraintVertical_bias="0.32"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -131,6 +131,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintVertical_bias="1.0"/>
+
+
+    <TextView
+        android:id="@+id/tv_change_player_names"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change player names"
+        tools:layout_editor_absoluteY="462dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"/>
 
 
 </android.support.constraint.ConstraintLayout>
