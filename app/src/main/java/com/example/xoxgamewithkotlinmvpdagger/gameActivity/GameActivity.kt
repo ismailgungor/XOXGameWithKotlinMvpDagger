@@ -104,7 +104,7 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
     }
 
     override fun showChooseAnotherCellToast() {
-        Toast.makeText(this, "Lütfen başka bir kare seçiniz", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.fill_the_nae_fields), Toast.LENGTH_SHORT).show()
     }
 
     override fun setPlayer1ButtonSelected(button: Button) {
@@ -125,7 +125,6 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
     override fun finishGame() {
 
         hideCurrentPlayerText()
-        setCurrentPlayerText("Player 1")
         showCongratulationText()
         mPresenter.setFinished(true)
 
@@ -144,12 +143,12 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
 
     private fun setCurrentPlayerText(string: String) {
 
-        this.tvCurrentPlayer.setText("Geçerli Oyuncu: " + string)
+        this.tvCurrentPlayer.setText(getString(R.string.current_player, string))
 
     }
 
     override fun showNoWinnerToast() {
-        tvCongratulation.setText("Oyun berabere bitti!")
+        tvCongratulation.setText(getString(R.string.draw))
     }
 
     override fun hideCurrentPlayerText() {
@@ -176,7 +175,7 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
     }
 
     override fun showChooseStartAgainToast() {
-        Toast.makeText(this, "Lütfen tekrar başlata basınız!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.click_start_again), Toast.LENGTH_SHORT).show()
     }
 
     fun initializeButton() {
@@ -209,13 +208,13 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
 
     override fun setPlayer1CongratulationsText() {
 
-        tvCongratulation.setText("Tebrikler! Kazanan oyuncu " + player1)
+        tvCongratulation.setText(getString(R.string.congratulations_winner, player1))
 
     }
 
     override fun setPlayer2CongratulationsText() {
 
-        tvCongratulation.setText("Tebrikler! Kazanan oyuncu " + player2)
+        tvCongratulation.setText(getString(R.string.congratulations_winner, player2))
 
     }
 }

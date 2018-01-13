@@ -26,7 +26,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PLAYER 1"
+                    android:text="@string/player_1"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/et_player_1"
-                    android:hint="Please enter the player 1 name"
+                    android:hint="@string/please_enter_player_1"
                     />
 
             </LinearLayout>
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PLAYER 2"
+                    android:text="@string/player_2"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -56,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/et_player_2"
-                    android:hint="Please enter the player 2 name"/>
+                    android:hint="@string/please_enter_player_2"/>
 
 
             </LinearLayout>
@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cv_player_names"
-        android:text="start"
+        android:text="@string/start"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#FFFFFF"
