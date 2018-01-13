@@ -7,12 +7,17 @@ interface MainActivityContract {
 
     interface View {
 
+        fun showPlayerNameEmptyToast()
+
+        fun goToGameActivity(player1Name: String, player2Name: String)
 
     }
 
     interface Presenter {
 
         fun setView(view: View)
+
+        fun controllPlayerNames(player1Name: String, player2Name: String)
 
     }
 }
