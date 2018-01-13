@@ -1,5 +1,6 @@
 package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
+import android.content.Intent
 import android.widget.Button
 import com.example.xoxgamewithkotlinmvpdagger.IntentHelper
 import com.example.xoxgamewithkotlinmvpdagger.R
@@ -124,6 +125,12 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
 
     override fun setFinished(boolean: Boolean) {
         this.isFinished = boolean
+    }
+
+
+    override fun callMainActivityIntent(): Intent {
+
+        return this.mIntentHelper.getMainActivityIntent()
     }
 
 

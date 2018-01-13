@@ -1,5 +1,6 @@
 package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
+import android.content.Intent
 import android.widget.Button
 
 /**
@@ -44,6 +45,8 @@ interface GameActivityContract {
         fun startClickProcess(button: Button)
 
         fun setFinished(boolean: Boolean)
+
+        fun callMainActivityIntent(): Intent
 
     }
 
