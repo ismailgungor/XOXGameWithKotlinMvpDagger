@@ -81,6 +81,7 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
         btn9.setOnClickListener(this)
         btnStartAgain.setOnClickListener(this)
 
+        Toast.makeText(this, intent.extras.getString("player1") + " " + intent.extras.getString("player2"), Toast.LENGTH_SHORT).show()
     }
 
     override fun onClick(view: View) {
