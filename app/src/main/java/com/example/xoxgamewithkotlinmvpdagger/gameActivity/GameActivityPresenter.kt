@@ -1,21 +1,22 @@
-package com.example.xoxgamewithkotlinmvpdagger
+package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
 import android.widget.Button
+import com.example.xoxgamewithkotlinmvpdagger.R
 import javax.inject.Inject
 
 /**
  * Created by ismailgungor on 12.01.2018.
  */
-class MainActivityPresenter @Inject constructor(gameHelper: GameHelper) : MainActivityContract.Presenter {
+class GameActivityPresenter @Inject constructor(gameHelper: GameHelper) : GameActivityContract.Presenter {
 
 
-    private lateinit var mView: MainActivityContract.View
+    private lateinit var mView: GameActivityContract.View
     private var mGameHelper: GameHelper = gameHelper
     private var playerNumber = 1
     private var isFinished = false
 
 
-    override fun setView(view: MainActivityContract.View) {
+    override fun setView(view: GameActivityContract.View) {
 
         this.mView = view
 

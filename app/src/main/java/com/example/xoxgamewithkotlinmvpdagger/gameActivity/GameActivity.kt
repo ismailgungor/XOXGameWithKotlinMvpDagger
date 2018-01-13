@@ -1,4 +1,4 @@
-package com.example.xoxgamewithkotlinmvpdagger
+package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,9 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.example.xoxgamewithkotlinmvpdagger.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), MainActivityContract.View, View.OnClickListener {
+class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClickListener {
 
     lateinit var buttons: Array<Button>
 
@@ -51,14 +52,14 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, View.OnClic
     lateinit var tvCongratulation: TextView
 
     @Inject
-    lateinit var mPresenter: MainActivityPresenter
+    lateinit var mPresenter: GameActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_game)
 
-        DaggerMainActivityComponent.builder()
-                .mainActivityModule(MainActivityModule())
+        DaggerGameActivityComponent.builder()
+                .gameActivityModule(GameActivityModule())
                 .build().inject(this)
 
         ButterKnife.bind(this)

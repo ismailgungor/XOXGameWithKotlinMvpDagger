@@ -1,11 +1,11 @@
-package com.example.xoxgamewithkotlinmvpdagger
+package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
 import android.widget.Button
 
 /**
  * Created by ismailgungor on 12.01.2018.
  */
-interface MainActivityContract {
+interface GameActivityContract {
 
     interface View {
 

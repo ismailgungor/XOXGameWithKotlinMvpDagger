@@ -1,7 +1,9 @@
-package com.example.xoxgamewithkotlinmvpdagger
+package com.example.xoxgamewithkotlinmvpdagger.gameActivity
+
+import com.example.xoxgamewithkotlinmvpdagger.R
 
 /**
- * Created by ismailgungor on 12.01.2018.
+ * Created by ismailgungor on 13.01.2018.
  */
 class GameHelper {
 
@@ -102,5 +104,6 @@ class GameHelper {
     fun isRemainCell(): Boolean {
         return remainCell.size > 0
     }
+
 
 }

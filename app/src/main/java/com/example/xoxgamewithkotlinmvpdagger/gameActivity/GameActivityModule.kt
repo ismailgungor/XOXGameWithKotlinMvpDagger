@@ -1,4 +1,4 @@
-package com.example.xoxgamewithkotlinmvpdagger
+package com.example.xoxgamewithkotlinmvpdagger.gameActivity
 
 import dagger.Module
 import dagger.Provides
@@ -7,7 +7,7 @@ import dagger.Provides
  * Created by ismailgungor on 12.01.2018.
  */
 @Module
-class MainActivityModule {
+class GameActivityModule {
 
     @Provides
     fun provideGameHelper(): GameHelper {
