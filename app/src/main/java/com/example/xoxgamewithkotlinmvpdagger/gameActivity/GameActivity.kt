@@ -15,7 +15,10 @@ import javax.inject.Inject
 
 class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClickListener {
 
+
     lateinit var buttons: Array<Button>
+    private var player1: String = "Player 1"
+    private var player2: String = "Player 2"
 
     @BindView(R2.id.btn1)
     lateinit var btn1: Button
@@ -71,8 +74,10 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
 
         this.mPresenter.setView(this)
 
+        this.mPresenter.controllPlayerNamesFromIntent(getIntent())
+
         buttons = arrayOf(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
-        setCurrentPlayerText("Player 1")
+        setCurrentPlayerText(player1)
         startGame()
 
         btn1.setOnClickListener(this)
@@ -89,8 +94,6 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
             startActivity(mPresenter.callMainActivityIntent())
             finish()
         }
-
-        Toast.makeText(this, intent.extras.getString("player1") + " " + intent.extras.getString("player2"), Toast.LENGTH_SHORT).show()
     }
 
     override fun onClick(view: View) {
@@ -118,11 +121,6 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
 
     }
 
-    override fun showCongratulationsMessage(string: String) {
-
-        tvCongratulation.setText("Tebrikler! Kazanan oyuncu " + string)
-
-    }
 
     override fun finishGame() {
 
@@ -137,13 +135,14 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
     override fun startGame() {
         initializeButton()
 
+        setCurrentPlayerText(player1)
         hideCongratulationText()
         showCurrentPlayerText()
 
     }
 
 
-    override fun setCurrentPlayerText(string: String) {
+    private fun setCurrentPlayerText(string: String) {
 
         this.tvCurrentPlayer.setText("Geçerli Oyuncu: " + string)
 
@@ -181,13 +180,42 @@ class GameActivity : AppCompatActivity(), GameActivityContract.View, View.OnClic
     }
 
     fun initializeButton() {
-
-
         for (button in buttons) {
             button.setText("")
             button.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
         }
+    }
 
+    override fun setPlayer1Name(player1Name: String) {
+
+        this.player1 = player1Name
+    }
+
+    override fun setPlayer2Name(player2Name: String) {
+
+        this.player2 = player2Name
+    }
+
+
+    override fun setCurrentPlayer1Text() {
+
+        setCurrentPlayerText(player1)
+    }
+
+    override fun setCurrentPlayer2Text() {
+
+        setCurrentPlayerText(player2)
+    }
+
+    override fun setPlayer1CongratulationsText() {
+
+        tvCongratulation.setText("Tebrikler! Kazanan oyuncu " + player1)
+
+    }
+
+    override fun setPlayer2CongratulationsText() {
+
+        tvCongratulation.setText("Tebrikler! Kazanan oyuncu " + player2)
 
     }
 }

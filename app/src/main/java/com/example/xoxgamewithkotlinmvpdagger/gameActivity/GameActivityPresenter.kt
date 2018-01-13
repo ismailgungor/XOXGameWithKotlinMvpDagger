@@ -46,7 +46,7 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
 
                         if (mGameHelper.checkWinner(playerNumber, cellId)) {
                             mView.finishGame()
-                            mView.showCongratulationsMessage("player 1")
+                            mView.setPlayer1CongratulationsText()
                             mGameHelper.initializeArrays()
 
                         } else if (!mGameHelper.isRemainCell()) {
@@ -58,7 +58,7 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
 
                         } else {
                             playerNumber = 2
-                            mView.setCurrentPlayerText("Player 2")
+                            mView.setCurrentPlayer2Text()
 
                         }
 
@@ -80,7 +80,7 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
 
                         if (mGameHelper.checkWinner(playerNumber, cellId)) {
                             mView.finishGame()
-                            mView.showCongratulationsMessage("player 2")
+                            mView.setPlayer2CongratulationsText()
                             mGameHelper.initializeArrays()
                             playerNumber = 1
 
@@ -95,7 +95,7 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
                         } else {
 
                             playerNumber = 1
-                            mView.setCurrentPlayerText("Player 1")
+                            mView.setCurrentPlayer1Text()
 
                         }
 
@@ -114,7 +114,7 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
 
         } else {
             setFinished(false)
-            mView.setCurrentPlayerText("Player 1")
+            mView.setCurrentPlayer1Text()
             mView.startGame()
             mGameHelper.initializeArrays()
             playerNumber = 1
@@ -131,6 +131,15 @@ class GameActivityPresenter @Inject constructor(gameHelper: GameHelper, intentHe
     override fun callMainActivityIntent(): Intent {
 
         return this.mIntentHelper.getMainActivityIntent()
+    }
+
+    override fun controllPlayerNamesFromIntent(intent: Intent?) {
+
+        // Non-null control with "let"
+        intent?.extras?.getString("player1")?.let { mView.setPlayer1Name(it) }
+        intent?.extras?.getString("player2")?.let { mView.setPlayer2Name(it) }
+
+
     }
 
 

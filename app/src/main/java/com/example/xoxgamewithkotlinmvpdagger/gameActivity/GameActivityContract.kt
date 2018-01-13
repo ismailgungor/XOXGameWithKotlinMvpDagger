@@ -10,8 +10,6 @@ interface GameActivityContract {
 
     interface View {
 
-        fun showCongratulationsMessage(string: String)
-
         fun showChooseAnotherCellToast()
 
         fun setPlayer1ButtonSelected(button: Button)
@@ -21,8 +19,6 @@ interface GameActivityContract {
         fun finishGame()
 
         fun startGame()
-
-        fun setCurrentPlayerText(string: String)
 
         fun showNoWinnerToast()
 
@@ -36,6 +32,18 @@ interface GameActivityContract {
 
         fun showChooseStartAgainToast()
 
+        fun setPlayer1Name(player1Name: String)
+
+        fun setPlayer2Name(player2Name: String)
+
+        fun setCurrentPlayer1Text()
+
+        fun setCurrentPlayer2Text()
+
+        fun setPlayer1CongratulationsText()
+
+        fun setPlayer2CongratulationsText()
+
     }
 
     interface Presenter {
@@ -47,6 +55,8 @@ interface GameActivityContract {
         fun setFinished(boolean: Boolean)
 
         fun callMainActivityIntent(): Intent
+
+        fun controllPlayerNamesFromIntent(intent: Intent?)
 
     }
 
