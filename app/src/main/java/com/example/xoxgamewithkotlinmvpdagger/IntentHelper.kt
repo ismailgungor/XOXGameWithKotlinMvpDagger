@@ -16,9 +16,9 @@ class IntentHelper(context: Context) {
     }
 
 
-    fun getGameActivityIntent(player1Name: String, player2Name: String, from: Context, gameActivity: GameActivity): Intent {
+    fun getGameActivityIntent(player1Name: String, player2Name: String): Intent {
 
-        var gameIntent = Intent(from, gameActivity::class.java)
+        val gameIntent = Intent(mContext, GameActivity::class.java)
         gameIntent.putExtra("player1", player1Name)
         gameIntent.putExtra("player2", player2Name)
 
